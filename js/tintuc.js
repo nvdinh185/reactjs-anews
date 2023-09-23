@@ -14,6 +14,7 @@ const App = (
             {listNews.map(news =>
               <PostItem
                 key={news.id}
+                id={news.id}
                 description={news.description}
                 detail={news.detail}
               />

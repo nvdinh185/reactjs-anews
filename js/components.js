@@ -2,7 +2,7 @@ function PostItem(props) {
     return (
         <li>
             <h2>
-                <a href="chitiet.html" title="">{props.description}</a>
+                <a href={"chitiet.html?did=" + props.id} title="">{props.description}</a>
             </h2>
             <div className="item">
                 <p>{props.detail}</p>
@@ -44,10 +44,9 @@ function Sidebar() {
         <>
             <h3>Danh mục tin</h3>
             <ul>
-                <li><a href="danhmuc.html">Thời sự</a></li>
-                <li><a href="danhmuc.html">Góc nhìn</a></li>
-                <li><a href="danhmuc.html">Thế giới</a></li>
-                <li><a href="danhmuc.html">Kinh doanh</a></li>
+                {listCats.map(cat =>
+                    <li key={cat.id}><a href={'danhmuc.html?cid=' + cat.id}>{cat.name}</a></li>
+                )}
             </ul>
         </>
     )
@@ -92,5 +91,24 @@ const listNews = [
         "description": "Chuyên gia Anh tin chắc vị trí MH370 rơi",
         "detail": "Các chuyên gia thuộc công ty viễn thông Anh Inmarsat cho rằng họ xác định được vị trí chiếc máy bay MH370 đã rơi xuống trên Ấn Độ Dương, tuy nhiên đội.",
         "catId": "1"
+    }
+]
+
+const listCats = [
+    {
+        "id": "1",
+        "name": "Thời sự"
+    },
+    {
+        "id": "2",
+        "name": "Góc nhìn"
+    },
+    {
+        "id": "3",
+        "name": "Thế giới"
+    },
+    {
+        "id": "4",
+        "name": "Kinh doanh"
     }
 ]

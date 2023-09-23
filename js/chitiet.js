@@ -1,3 +1,16 @@
+function getParameterByName(name, url = location.href) {
+  name = name.replace(/[\[\]]/g, '\\$&');
+  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+    results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+var dId = getParameterByName('did');
+
+var newsById = listNews.find(news => news.id == dId);
+
 const App = (
   <div className="wrapper">
     <Header />
@@ -8,16 +21,9 @@ const App = (
         <Sidebar />
       </div>
       <div className="content-right fr">
-        <h3>Trung Quốc điều thêm 17 tàu đến khu vực giàn khoan</h3>
+        <h3>{newsById.description}</h3>
         <div className="main-content">
-          <p>Để bảo vệ giàn khoan, Trung Quốc đã điều thêm 17 tàu các loại so với hôm trước, sẵn sàng đâm va
-            vào tàu Việt Nam.</p>
-          <p>Để bảo vệ giàn khoan, Trung Quốc đã điều thêm 17 tàu các loại so với hôm trước, sẵn sàng đâm va
-            vào tàu Việt Nam.</p>
-          <p>Để bảo vệ giàn khoan, Trung Quốc đã điều thêm 17 tàu các loại so với hôm trước, sẵn sàng đâm va
-            vào tàu Việt Nam.</p>
-          <p>Để bảo vệ giàn khoan, Trung Quốc đã điều thêm 17 tàu các loại so với hôm trước, sẵn sàng đâm va
-            vào tàu Việt Nam.</p>
+          <p>{newsById.detail}</p>
         </div>
       </div>
       <div className="clr"></div>
