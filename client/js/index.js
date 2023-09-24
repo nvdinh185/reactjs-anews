@@ -1,4 +1,5 @@
-setTimeout(() => {
+(async () => {
+  await getListCats();
   const App = (
     <div className="wrapper">
       <Header />
@@ -53,4 +54,4 @@ setTimeout(() => {
   )
 
   ReactDOM.render(App, document.getElementById("root"))
-}, 1000);
+})();

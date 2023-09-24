@@ -1,4 +1,6 @@
-setTimeout(() => {
+(async () => {
+  await getListNews();
+  await getListCats();
   function getParameterByName(name, url = location.href) {
     name = name.replace(/[\[\]]/g, '\\$&');
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
@@ -35,4 +37,4 @@ setTimeout(() => {
   )
 
   ReactDOM.render(App, document.getElementById("root"))
-}, 1000);
+})();

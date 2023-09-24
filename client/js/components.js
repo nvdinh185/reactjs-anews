@@ -68,10 +68,9 @@ async function getListNews() {
     listNews = listNews.data;
     console.log(listNews);
 }
-getListNews();
+
 async function getListCats() {
     listCats = await axios.get('http://localhost:3000/listCats');
     listCats = listCats.data;
     console.log(listCats);
 }
-getListCats();
